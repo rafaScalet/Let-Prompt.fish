@@ -5,9 +5,11 @@ if status is-interactive
       if test $status -ne 0
         fastfetch
       end
+    else if type -q figlet
+      figlet hello (whoami)
     else
       echo "Bem vindo "(set_color magenta)(whoami)(set_color normal)", ao seu novo setup"
-      echo "instale o "(set_color cyan)"fastfetch "(set_color normal)"para começar"
+      echo "instale o "(set_color cyan)"fastfetch "(set_color normal)"ou o "(set_color green)"figlet "(set_color normal)"para começar"
     end
   end
 
