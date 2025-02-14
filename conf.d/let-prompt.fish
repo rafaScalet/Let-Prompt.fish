@@ -1,6 +1,6 @@
 if status is-interactive
   function fish_greeting
-    if type -q fastfetch --config ~/.config/fastfetch/greeting.jsonc
+    if type -q fastfetch
       fastfetch --config ~/.config/fastfetch/greeting.jsonc
     else
       echo "Welcome "(set_color cyan)(whoami)(set_color normal)", to your new setup of "(set_color yellow)(hostnamectl | grep "Operating System" | cut -d ' ' -f3-)(set_color normal)
