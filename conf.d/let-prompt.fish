@@ -5,11 +5,9 @@ if status is-interactive
       if test $status -ne 0
         fastfetch
       end
-    else if type -q figlet
-      figlet hello (whoami)
     else
-      echo "Bem vindo "(set_color magenta)(whoami)(set_color normal)", ao seu novo setup"
-      echo "instale o "(set_color cyan)"fastfetch "(set_color normal)"ou o "(set_color green)"figlet "(set_color normal)"para começar"
+      echo "Welcome "(set_color cyan)(whoami)(set_color normal)", to your new setup of "(set_color yellow)(hostnamectl | grep "Operating System" | cut -d ' ' -f3-)(set_color normal)
+      echo "install "(set_color green)"fastfetch "(set_color normal)"and "(set_color magenta)"starship "(set_color normal)"to start"
     end
   end
 
@@ -19,5 +17,9 @@ if status is-interactive
     set -l parent_dir (basename (dirname (pwd)))
 
     echo $parent_dir/$current_dir
+  end
+
+  if type -q starship
+    starship init fish | source
   end
 end
